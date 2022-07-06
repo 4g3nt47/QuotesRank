@@ -33,7 +33,13 @@ cd QuotesRank
 npm install
 ```
 
-3. Setup a *MongoDB* database, and update the `.env` file with it's connection details. Also make sure to change the `SECRET` in use.
+3. Setup a *MongoDB* database, and create a `.env` file with the following;
+
+```shell
+DB_URL=mongodb://<db-user>:<db-passwd>@<db-host>/<db-name>
+SECRET=<A_LONG_RANDOM_STRING_TO_USE_AS_SECRET>
+DB_PORT=<PORT_TO_LISTEN_ON>
+```
 
 4. Import the default quotes
 
