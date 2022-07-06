@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Quote - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+  <div class="grid-container">
+  
+    <header>
+      <h1>Quote - QuotesRank</h1>
+    </header>
+  
+    <%- include("./includes/nav"); %>
+  
+    <div class="main-body">
+      <% if (quote){ %>
+        <%- include("./includes/quote", {quote, req}); %>
+      <% } %>
+
+      <table class="stat-table">
+        <tr>
+          <th>Quote ID</th>
+          <td><%= quote._id %></td>
+        </tr>
+        <tr>
+          <th>Submitted By</th>
+          <td><%= quote.submitter %></td>
+        </tr>
+        <tr>
+          <th>Date Approved</th>
+          <td><%= new Date(quote.time_approved).toGMTString() %></td>
+        </tr>
+        <tr>
+          <th>Votes</th>
+          <td><%= quote.votes %></td>
+        </tr>
+      </table>
+      <div class="center">
+        <% if (req.session.admin === true || req.session.username === quote.submitter){ %>
+          <input type="button" class="danger-btn" value="Delete Quote" title="Delete this quote" onclick="deleteQuote('<%= quote._id %>');">
+          <p class="error"></p>
+        <% } %>
+      </div>
+    </div>
+  
+    <%- include("./includes/footer") %>
+
+  </div>
+
+</body>
+</html>

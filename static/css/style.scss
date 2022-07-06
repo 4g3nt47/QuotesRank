@@ -1,0 +1,551 @@
+// Our variables.
+
+$hue: 120;
+$bg1: hsl($hue, 50%, 90%);
+$bg2: hsl($hue, 60%, 80%);
+$bg3: hsl($hue, 30%, 30%);
+$line-color: hsl($hue, 50%, 20%);
+$shadow-color: $line-color;
+$error-color: #af0000;
+
+*{
+  font-size: 15pt;
+  box-sizing: border-box;
+  font-family: helvetica;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: $bg1;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 15px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header{
+  grid-column: span 12;
+  padding: 10px;
+  border-bottom: 2px solid $line-color;
+  margin-bottom: 10px;
+  h1{
+    font-size: 22pt;
+    text-align: center;
+  }
+}
+
+footer{
+  grid-column: span 12;
+  text-align: center;
+  border-top: 1px dashed $line-color;
+  a{
+    color: $line-color;
+  }
+  p{
+    text-align: center;
+  }
+}
+
+nav{
+  grid-column: span 2;
+  ul{
+    border-right: 2px solid $line-color;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+      text-align: right;
+    }
+    a{
+      display: block;
+      text-decoration: none;
+      line-height: 1.4em;
+      padding-right: 10px;
+      font-size: 16pt;
+      font-weight: bold;
+      color: $line-color;
+      border-radius: 7px 0px 0px 7px;
+      transition: background-color 0.1s;
+    }
+    a:hover, a.current-link{
+      background-color: $line-color;
+      color: white;
+    }
+  }
+}
+
+// Styles for quotes container and the quotes themselves.
+
+.quotes-container{
+  grid-column: span 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: start;
+  input.next-page-btn{
+    grid-column: span 2;
+    display: inline-block;
+    width: auto;
+    margin: 1em auto 0px auto;
+  }
+}
+
+.quote{
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  background-color: $bg2;
+  padding: 5px;
+  padding-right: 10px;
+  border: 2px solid $line-color;
+  border-radius: 11px;
+  box-shadow: 5px 5px 5px $shadow-color;
+  margin-bottom: 1em;
+  .action-box{
+    text-align: center;
+    line-height: 2px;
+    align-self: center;
+    button{
+      background-color: $bg1;
+      border: 1px solid $line-color;
+      border-radius: 5px;
+    }
+  }
+  .quote-box{
+    border-left: 1px solid $line-color;
+    padding-left: 10px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    cursor: pointer;
+  }
+
+  p.quote-string{
+    font-family: cursive;
+    font-size: 16pt;
+    font-style: italic;
+  }
+  p.quote-author{
+    font-size: 15pt;
+    opacity: 0.7;
+    border-top: 1px solid $line-color;
+    text-align: right;
+    font-family: cursive;
+    font-style: italic;
+  }
+  p.votes{
+    text-align: center;
+  }
+}
+
+button{
+  cursor: pointer;
+}
+
+input[type="button"], input[type="submit"]{
+  background-color: $bg3;
+  color: white;
+  font-size: 13pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 20px;
+  border: 1px solid $line-color;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px $line-color;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover{
+  background-color: hsl($hue, 50%, 50%);
+  color: black;
+  cursor: pointer;
+}
+
+input.danger-btn{
+  background-color: #7B1F1F;
+  color: white;
+}
+
+input.danger-btn:hover{
+  background-color: #ff1F1F;
+  color: white;
+}
+
+button.accept-btn, button.reject-btn{
+  font-size: 11pt;
+}
+
+button[type="button"].reject-btn{
+  background-color: $error-color;
+  color:white;
+}
+
+button.accept-btn:hover{
+  background-color: $line-color;
+  color: white;
+}
+
+
+// Middle column for other pages.
+
+.main-body{
+  margin-top: 0.5em;
+  grid-column: span 8;
+}
+
+.center{
+  width: 100%;
+  text-align: center;
+  table.stat-table{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
+  }
+}
+
+// Our forms.
+
+form{
+  background-color: $bg2;
+  text-align: center;
+  border: 2px solid $line-color;
+  padding-top: 40px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px black;
+  label{
+    display: inline-block;
+    min-width: 70%;
+    text-align: left;
+    font-size: 15pt;
+  }
+  input[type="text"], input[type="password"], textarea{
+    min-width: 70%;
+    font-size: 13pt;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+  textarea{
+    min-width: 70%;
+    height: 5em;
+  }
+}
+
+form.signup-form, form.login-form, form.quote-form, form.password-reset-form{
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+form.search-form{
+  grid-column: span 2;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1em;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 1em;
+  input[type="text"]{
+    display: inline;
+  }
+
+  input[type="submit"]{
+    display: inline;
+    text-align: right;
+    box-shadow: none;
+  }
+}
+
+// Stat tables.
+table.stat-table{
+  width: 100%;
+  border: 2px solid $line-color;
+  border-collapse: collapse;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+  tr{
+    border: 1px solid $line-color;
+  }
+  th{
+    background-color: $bg2;
+    padding-right: 10px;
+    text-align: right;
+    width: 30%;
+    border: 1px solid $line-color;
+  }
+  td{
+    padding-left: 10px;
+    text-align: left;
+  }
+}
+
+p{
+  font-size: 13pt;
+  text-align: left;
+}
+
+// Error message.
+p.error{
+  text-align: center;
+  color: $error-color;
+}
+
+// Status/success message.
+p.status{
+  text-align: center;
+  color: $line-color;
+}
+
+//------------------
+// Responsive syles.
+//------------------
+
+@media screen and (max-width: 1090px){
+  
+  *{
+    font-size: 13pt;
+  }
+
+  header h1{
+    font-size: 15pt;
+  }
+
+  ul li a{
+    font-size: 12pt;
+  }
+
+  footer p{
+    font-size: 9pt;
+    a{
+      font-size: 9pt;
+    }
+  }
+
+  nav{
+    grid-column: span 12;
+    border-bottom: 1px dashed $line-color;
+    margin-bottom: 2em;
+    ul{
+      border-right: none;
+      text-align: center;
+      li{
+        margin-bottom: 10px;
+        display: inline-block;
+        text-align: center;
+        a{
+          border: 1px solid $line-color;
+          padding: 0;
+          border-radius: 8px;
+          text-align: center;
+          padding: 0px 15px;
+        }
+      }
+    }
+  }
+
+  .quotes-container{
+    grid-column: span 12;
+  }
+
+  .main-body{
+    grid-column: 3 / span 8;
+  }
+
+  form{
+    label{
+      font-size: 12pt;
+    }
+    input[type="text"], input[type="password"], textarea{
+      font-size: 11pt;
+    }
+  }
+
+  input[type="button"], input[type="submit"]{
+    font-size: 10pt;
+  }
+
+  button.accept-btn, button.reject-btn{
+    font-size: 10pt;
+  }
+
+  form.quote-form{
+    width: 70%;
+  }
+
+  table.stat-table{
+    font-size: 12pt;
+    line-height: 1em;
+    th{
+      font-weight: normal;
+    }
+  }
+
+  .quote{
+    p.quote-string{
+      font-size: 15pt;
+    }
+    p.quote-author{
+      font-size: 14pt;
+    }
+  }
+
+  p{
+    font-size: 11pt;
+  }
+
+  em{
+    font-size: 11pt;
+    font-weight: bold;
+  }
+
+}
+
+@media screen and (max-width: 910px){
+
+  *{
+    font-size: 11pt;
+  }
+
+  header h1{
+    font-size: 12pt;
+  }
+
+  ul li a{
+    font-size: 10pt;
+  }
+
+  .main-body{
+    grid-column: span 12;
+  }
+
+  .quote, table.stat-table{
+    grid-column: span 2;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  form{
+    label{
+      font-size: 10pt;
+    }
+    input[type="text"], input[type="password"], textarea{
+      font-size: 9pt;
+    }
+  }
+
+  form.signup-form, form.login-form, form.password-reset-form{
+    width: 50%;
+  }
+
+  input[type="button"], input[type="submit"]{
+    font-size: 8pt;
+  }
+
+  button.accept-btn, button.reject-btn{
+    font-size: 8pt;
+  }
+
+  .quote{
+    p.quote-string{
+      font-size: 14pt;
+    }
+    p.quote-author{
+      font-size: 13pt;
+    }
+  }
+
+  p{
+    font-size: 9pt;
+  }
+
+  em{
+    font-size: 9pt;
+    font-weight: bold;
+  }
+
+  p.about{
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  footer p{
+    font-size: 8pt;
+    a{
+      font-size: 8pt;
+    }
+  }
+
+}
+
+@media screen and (max-width: 680px) {
+  .quote, table.stat-table{
+    width: 98%;
+  }
+
+  .center{
+    table.stat-table{
+      width: 90%;
+    }
+  }
+
+  form.search-form{
+    width: 90%;
+  }
+
+  form.quote-form{
+    width: 90%;
+  }
+
+  form.password-reset-form{
+    width: 90%;
+  }
+
+  .quote{
+    p.quote-string{
+      font-size: 12pt;
+    }
+    p.quote-author{
+      font-size: 11pt;
+    }
+  }
+
+  p{
+    font-size: 8pt;
+  }
+
+  em{
+    font-size: 8pt;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  
+  form.signup-form, form.login-form, form.password-reset-form{
+    width: 90%;
+  }
+
+  form.quote-form{
+    width: 98%;
+  }
+
+  input[type="button"], input[type="submit"]{
+    font-size: 7pt;
+  }
+
+  .quote{
+    p.quote-string{
+      font-size: 10pt;
+    }
+    p.quote-author{
+      font-size: 9pt;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div id="quote-<%= quote._id %>" class="quote">
+  <div class="action-box" style="padding-right: 5px; padding-left: 5px;">
+    <button type="button" class="accept-btn" title="Accept this quote" onclick="acceptQuote('<%= quote._id %>');">ACCEPT</button>
+    <p class="votes">0</p>
+    <button type="button" class="reject-btn" title="Reject this quote" onclick="rejectQuote('<%= quote._id %>');">REJECT</button>
+  </div>
+  <div class="quote-box">
+    <p class="quote-string"><%= quote.quote %></p>
+    <p class="quote-author"><%= quote.author %></p>
+  </div>
+</div>

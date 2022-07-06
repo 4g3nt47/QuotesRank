@@ -1,0 +1,468 @@
+* {
+  font-size: 15pt;
+  box-sizing: border-box;
+  font-family: helvetica;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: hsl(120deg, 50%, 90%);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 15px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  grid-column: span 12;
+  padding: 10px;
+  border-bottom: 2px solid hsl(120deg, 50%, 20%);
+  margin-bottom: 10px;
+}
+header h1 {
+  font-size: 22pt;
+  text-align: center;
+}
+
+footer {
+  grid-column: span 12;
+  text-align: center;
+  border-top: 1px dashed hsl(120deg, 50%, 20%);
+}
+footer a {
+  color: hsl(120deg, 50%, 20%);
+}
+footer p {
+  text-align: center;
+}
+
+nav {
+  grid-column: span 2;
+}
+nav ul {
+  border-right: 2px solid hsl(120deg, 50%, 20%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  text-align: right;
+}
+nav ul a {
+  display: block;
+  text-decoration: none;
+  line-height: 1.4em;
+  padding-right: 10px;
+  font-size: 16pt;
+  font-weight: bold;
+  color: hsl(120deg, 50%, 20%);
+  border-radius: 7px 0px 0px 7px;
+  transition: background-color 0.1s;
+}
+nav ul a:hover, nav ul a.current-link {
+  background-color: hsl(120deg, 50%, 20%);
+  color: white;
+}
+
+.quotes-container {
+  grid-column: span 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  align-items: start;
+}
+.quotes-container input.next-page-btn {
+  grid-column: span 2;
+  display: inline-block;
+  width: auto;
+  margin: 1em auto 0px auto;
+}
+
+.quote {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  background-color: hsl(120deg, 60%, 80%);
+  padding: 5px;
+  padding-right: 10px;
+  border: 2px solid hsl(120deg, 50%, 20%);
+  border-radius: 11px;
+  box-shadow: 5px 5px 5px hsl(120deg, 50%, 20%);
+  margin-bottom: 1em;
+}
+.quote .action-box {
+  text-align: center;
+  line-height: 2px;
+  align-self: center;
+}
+.quote .action-box button {
+  background-color: hsl(120deg, 50%, 90%);
+  border: 1px solid hsl(120deg, 50%, 20%);
+  border-radius: 5px;
+}
+.quote .quote-box {
+  border-left: 1px solid hsl(120deg, 50%, 20%);
+  padding-left: 10px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  cursor: pointer;
+}
+.quote p.quote-string {
+  font-family: cursive;
+  font-size: 16pt;
+  font-style: italic;
+}
+.quote p.quote-author {
+  font-size: 15pt;
+  opacity: 0.7;
+  border-top: 1px solid hsl(120deg, 50%, 20%);
+  text-align: right;
+  font-family: cursive;
+  font-style: italic;
+}
+.quote p.votes {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type=button], input[type=submit] {
+  background-color: hsl(120deg, 30%, 30%);
+  color: white;
+  font-size: 13pt;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 20px;
+  border: 1px solid hsl(120deg, 50%, 20%);
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px hsl(120deg, 50%, 20%);
+}
+
+input[type=button]:hover, input[type=submit]:hover {
+  background-color: hsl(120deg, 50%, 50%);
+  color: black;
+  cursor: pointer;
+}
+
+input.danger-btn {
+  background-color: #7B1F1F;
+  color: white;
+}
+
+input.danger-btn:hover {
+  background-color: #ff1F1F;
+  color: white;
+}
+
+button.accept-btn, button.reject-btn {
+  font-size: 11pt;
+}
+
+button[type=button].reject-btn {
+  background-color: #af0000;
+  color: white;
+}
+
+button.accept-btn:hover {
+  background-color: hsl(120deg, 50%, 20%);
+  color: white;
+}
+
+.main-body {
+  margin-top: 0.5em;
+  grid-column: span 8;
+}
+
+.center {
+  width: 100%;
+  text-align: center;
+}
+.center table.stat-table {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em;
+}
+
+form {
+  background-color: hsl(120deg, 60%, 80%);
+  text-align: center;
+  border: 2px solid hsl(120deg, 50%, 20%);
+  padding-top: 40px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px black;
+}
+form label {
+  display: inline-block;
+  min-width: 70%;
+  text-align: left;
+  font-size: 15pt;
+}
+form input[type=text], form input[type=password], form textarea {
+  min-width: 70%;
+  font-size: 13pt;
+  line-height: 1.5em;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+form textarea {
+  min-width: 70%;
+  height: 5em;
+}
+
+form.signup-form, form.login-form, form.quote-form, form.password-reset-form {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+form.search-form {
+  grid-column: span 2;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1em;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 1em;
+}
+form.search-form input[type=text] {
+  display: inline;
+}
+form.search-form input[type=submit] {
+  display: inline;
+  text-align: right;
+  box-shadow: none;
+}
+
+table.stat-table {
+  width: 100%;
+  border: 2px solid hsl(120deg, 50%, 20%);
+  border-collapse: collapse;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+}
+table.stat-table tr {
+  border: 1px solid hsl(120deg, 50%, 20%);
+}
+table.stat-table th {
+  background-color: hsl(120deg, 60%, 80%);
+  padding-right: 10px;
+  text-align: right;
+  width: 30%;
+  border: 1px solid hsl(120deg, 50%, 20%);
+}
+table.stat-table td {
+  padding-left: 10px;
+  text-align: left;
+}
+
+p {
+  font-size: 13pt;
+  text-align: left;
+}
+
+p.error {
+  text-align: center;
+  color: #af0000;
+}
+
+p.status {
+  text-align: center;
+  color: hsl(120deg, 50%, 20%);
+}
+
+@media screen and (max-width: 1090px) {
+  * {
+    font-size: 13pt;
+  }
+  header h1 {
+    font-size: 15pt;
+  }
+  ul li a {
+    font-size: 12pt;
+  }
+  footer p {
+    font-size: 9pt;
+  }
+  footer p a {
+    font-size: 9pt;
+  }
+  nav {
+    grid-column: span 12;
+    border-bottom: 1px dashed hsl(120deg, 50%, 20%);
+    margin-bottom: 2em;
+  }
+  nav ul {
+    border-right: none;
+    text-align: center;
+  }
+  nav ul li {
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+  }
+  nav ul li a {
+    border: 1px solid hsl(120deg, 50%, 20%);
+    padding: 0;
+    border-radius: 8px;
+    text-align: center;
+    padding: 0px 15px;
+  }
+  .quotes-container {
+    grid-column: span 12;
+  }
+  .main-body {
+    grid-column: 3/span 8;
+  }
+  form label {
+    font-size: 12pt;
+  }
+  form input[type=text], form input[type=password], form textarea {
+    font-size: 11pt;
+  }
+  input[type=button], input[type=submit] {
+    font-size: 10pt;
+  }
+  button.accept-btn, button.reject-btn {
+    font-size: 10pt;
+  }
+  form.quote-form {
+    width: 70%;
+  }
+  table.stat-table {
+    font-size: 12pt;
+    line-height: 1em;
+  }
+  table.stat-table th {
+    font-weight: normal;
+  }
+  .quote p.quote-string {
+    font-size: 15pt;
+  }
+  .quote p.quote-author {
+    font-size: 14pt;
+  }
+  p {
+    font-size: 11pt;
+  }
+  em {
+    font-size: 11pt;
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 910px) {
+  * {
+    font-size: 11pt;
+  }
+  header h1 {
+    font-size: 12pt;
+  }
+  ul li a {
+    font-size: 10pt;
+  }
+  .main-body {
+    grid-column: span 12;
+  }
+  .quote, table.stat-table {
+    grid-column: span 2;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  form label {
+    font-size: 10pt;
+  }
+  form input[type=text], form input[type=password], form textarea {
+    font-size: 9pt;
+  }
+  form.signup-form, form.login-form, form.password-reset-form {
+    width: 50%;
+  }
+  input[type=button], input[type=submit] {
+    font-size: 8pt;
+  }
+  button.accept-btn, button.reject-btn {
+    font-size: 8pt;
+  }
+  .quote p.quote-string {
+    font-size: 14pt;
+  }
+  .quote p.quote-author {
+    font-size: 13pt;
+  }
+  p {
+    font-size: 9pt;
+  }
+  em {
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  p.about {
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  footer p {
+    font-size: 8pt;
+  }
+  footer p a {
+    font-size: 8pt;
+  }
+}
+@media screen and (max-width: 680px) {
+  .quote, table.stat-table {
+    width: 98%;
+  }
+  .center table.stat-table {
+    width: 90%;
+  }
+  form.search-form {
+    width: 90%;
+  }
+  form.quote-form {
+    width: 90%;
+  }
+  form.password-reset-form {
+    width: 90%;
+  }
+  .quote p.quote-string {
+    font-size: 12pt;
+  }
+  .quote p.quote-author {
+    font-size: 11pt;
+  }
+  p {
+    font-size: 8pt;
+  }
+  em {
+    font-size: 8pt;
+  }
+}
+@media screen and (max-width: 460px) {
+  form.signup-form, form.login-form, form.password-reset-form {
+    width: 90%;
+  }
+  form.quote-form {
+    width: 98%;
+  }
+  input[type=button], input[type=submit] {
+    font-size: 7pt;
+  }
+  .quote p.quote-string {
+    font-size: 10pt;
+  }
+  .quote p.quote-author {
+    font-size: 9pt;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

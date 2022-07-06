@@ -1,0 +1,11 @@
+<div class="quote">
+  <div class="action-box">
+    <button type="button" id="<%= 'upvote-btn-' + quote._id %>" onclick="vote('<%= quote._id %>', 1);" title="Upvote" <%= ((req.session.loggedIn && req.session.user.hasUpvoted(quote._id) === false) ? "" : "disabled") %>>^</button>
+    <p class="votes" id="votes-count-<%= quote._id %>"><%= quote.votes %></p>
+    <button type="button" id="<%= 'downvote-btn-' + quote._id %>" onclick="vote('<%= quote._id %>', 0);" title="Downvote" <%= ((req.session.loggedIn && req.session.user.hasDownvoted(quote._id) === false) ? "" : "disabled") %>>v</button>
+  </div>
+  <div class="quote-box" onclick="window.location = '/quote/<%= quote._id %>'">
+    <p class="quote-string"><%= quote.quote %></p>
+    <p class="quote-author"><%= quote.author %></p>
+  </div>
+</div>

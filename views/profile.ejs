@@ -1,0 +1,67 @@
+<% 
+  const user = req.session.user;
+  const admin = req.session.admin;
+%>
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Profile - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+  <div class="grid-container">
+    
+    <header>  
+      <h1>Profile - QuotesRank</h1>
+    </header>
+
+    <%- include("./includes/nav"); %>
+
+    <div class="main-body">
+      <div class="center">
+        <table class="stat-table">
+          <tr>
+            <th>UID</th>
+            <td><%= user._id %></td>
+          </tr>
+          <tr>
+            <th>Username</th>
+            <td><%= user.username %></td>
+          </tr>
+          <% if (admin){ %>
+            <tr>
+              <th>Admin</th>
+              <td>true</td>
+            </tr>
+          <% } %>
+          <tr>
+            <th>Joined On</th>
+            <td><%= new Date(user.joinedOn).toGMTString() %></td>
+          </tr>
+          <tr>
+            <th>Quotes Approved</th>
+            <td><%= approvedCount %></td>
+          </tr>
+        </table>
+        <form class="password-reset-form" onsubmit="return resetPassword(this);">
+          <label for="curr-password">Current Password:</label>
+          <input type="password" name="curr-password" required><br><br>
+          <label for="new-password">New Password:</label>
+          <input type="password" name="new-password" required><br><br>
+          <label for="conf-password">Confirm Password:</label>
+          <input type="password" name="conf-password" required><br><br>
+          <div class="center">
+            <input type="submit" name="submit" value="Change Password">
+          </div>
+          <p id="error" class="error"></p>
+          <p id="status" class="status"></p>
+        </form>
+      </div>
+    </div>        
+
+  </div>
+
+
+
+  <%- include("./includes/footer") %>
+
+</body>
+</html>

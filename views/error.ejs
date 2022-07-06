@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./includes/header', {title: "500 - Internal error"}); %>
+<body>
+
+  <div class="grid-container">
+    <header>
+      <h1>Error - QuotesRank</h1>
+    </header>
+
+    <div class="main-body" style="grid-column: 3 / span 8; text-align: center;">
+      <h3>Internal Error</h3>
+      <% if (typeof error != 'undefined'){ %>
+        <p class="error"><%= error.message %></p>
+      <% }else{ %>
+        <p class="error">Whoops! Something went wrong. Contact an admin!</p>
+      <% } %>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Add Quote - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+  <div class="grid-container">
+
+    <header>
+      <h1>Submit Quote - QuotesRank</h1>
+    </header>
+    
+    <%- include("./includes/nav"); %>
+  
+    <div class="main-body">
+      <div class="center">
+        <form class="quote-form" onsubmit="return submitQuote(this);">
+          <label for="quote">Quote:</label>
+          <textarea name="quote" maxlength="300" title="The new quote to add" spellcheck="false" autofocus></textarea><br><br>
+          <label for="author">Author:</label>
+          <input id="author" type="text" name="author" maxlength="32" title="The quote author" spellcheck="false"><br><br>
+          <div class="center">
+            <input type="submit" name="submitBtn" value="Submit" title="Submit quote">
+          </div>
+          <p id="error" class="error"></p>
+          <p id="status" class="status"></p>
+        </form>
+      </div>
+    </div>
+    
+    <%- include("./includes/footer") %>
+
+  </div>
+
+</body>
+</html>

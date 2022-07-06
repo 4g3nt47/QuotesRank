@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Pending Quotes - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+  <div class="grid-container">
+
+    <header>
+      <h1>Pending Quotes - QuotesRank</h1>
+    </header>
+  
+    <%- include("./includes/nav"); %>
+
+    <div class="quotes-container">
+      <% quotes.map((quote) => { %>
+        <%- include("./includes/pending-quote", {quote, req}); %>
+      <% }); %>
+    </div>
+
+    <%- include("./includes/footer") %>
+
+  </div>
+
+</body>
+</html>

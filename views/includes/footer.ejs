@@ -1,0 +1,11 @@
+<br class="clear">
+<footer>
+  <p>QuotesRank &copy; 2022, all rights reserved!
+  <% if (typeof stats != 'undefined'){ %>
+    <br>Quotes approved: <%= stats.approved %>
+    <br>Submissions in the last 24 hours: <%= stats.last24hr %>
+    <br>Pending quotes: <%= stats.pending %>
+  <% } %>
+  </p>
+  <p>Author: <a href="https://github.com/4g3nt47">Umar Abdul</a></p>
+</footer>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Search - QuotesRank"}); %>  
+<body onload="highlightCurrentURL();">
+
+  <div class="grid-container">
+    
+    <header>
+      <h1>Search - QuotesRank</h1>
+    </header>
+
+    <%- include("./includes/nav"); %>
+
+    <div class="quotes-container">
+      <form class="search-form" method="POST" action="/search">
+        <input id="query" name="query" type="text" placeholder="Query..." title="Your search query" autofocus autocomplete="off">
+        <input type="submit" name="submitBtn" value="Search" title="Search quotes">
+      </form>
+      <% quotes.map((quote) => { %>
+        <%- include("./includes/quote", {quote, req}); %>
+      <% }); %>
+    </div>
+
+    <%- include("./includes/footer"); %>
+
+  </div>
+
+
+</body>
+</html>

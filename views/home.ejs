@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Homepage - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+
+  <div class="grid-container">
+
+    <header>
+      <h1>Latest Quotes - QuotesRank</h1>
+    </header>
+
+    <%- include("./includes/nav"); %>
+
+    <div class="quotes-container">
+      <% quotes.map((quote) => { %>
+        <%- include("./includes/quote", {quote, req}); %>
+      <% }); %>
+      <% if (quotes.length == quotesPerPage){ %>
+          <input class="next-page-btn" type="button" value="More" onclick="window.location = '/?page=<%= page + 1 %>'">
+      <% } %>
+    </div>
+
+
+    <%- include("./includes/footer") %>
+
+  </div>
+</body>
+</html>

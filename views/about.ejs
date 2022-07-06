@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "About - QuotesRank"}); %>
+<body onload="highlightCurrentURL()">
+
+  <div class="grid-container">
+  
+    <header>
+      <h1>About - QuotesRank</h1>
+    </header>
+
+    <%- include("./includes/nav") %>
+  
+    <div class="main-body">
+      <p class="about">
+        <em>QuotesRank</em> is a simple full stack web application that is designed to be a
+        community-driven site for users to share quotes. Vistors have full access to the whole
+        quotes in the database, but only registered users can submit quotes (subject to admin
+        approval), or vote on existing quotes. By default, <em>QuotesRank</em> is packed with
+        <em>250</em> quotes.<br><br>
+
+        The web application frontend is built with HTML, CSS (SASS), and JavaScript (vanilla).
+        The backend is powered by <em>Node.js</em>, with <em>Express.js</em> being
+        the web application framework, and <em>EJS</em> the template engine.
+        The database in use is <em>MongoDB</em>.
+      </p>
+    </div>
+
+    <%- include("./includes/footer", {stats}) %>
+
+  </div>
+
+</body>
+</html>

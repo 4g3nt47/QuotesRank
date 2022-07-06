@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <%- include("./includes/header", {title: "Sign up - QuotesRank"}); %>  
+<body onload="highlightCurrentURL();">
+
+
+  <div class="grid-container">
+    <header>
+      <h1>Sign Up - QuotesRank</h1>
+    </header>
+
+    <%- include("./includes/nav"); %>
+    
+    <div class="main-body">
+      <form class="signup-form" onsubmit="return createAccount(this, '/api/user/register');">
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" placeholder="Username" title="Your username" maxlength="32" spellcheck="false" autofocus><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" title="Your password"><br><br>
+        <label for="password">Confirm Password:</label>
+        <input type="password" id="conf-password" name="conf-password" placeholder="Password" title="Confirm password"><br><br>
+        <div class="center">
+          <input type="submit" id="submitBtn" name="signup" value="Create Account" title="Create account">
+        </div>
+        <p id="error" class="error"><%= (typeof req.query.error != 'undefined' ? req.query.error : "") %></p>
+      </form>
+    </div>
+    
+    <%- include("./includes/footer"); %>
+  
+  </div>
+
+</body>
+</html>
