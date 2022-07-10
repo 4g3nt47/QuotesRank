@@ -13,7 +13,8 @@ The application is built with an API through which every feature of site can be 
   - Express.js (web application framework)
   - EJS (template engine)
   - MongoDB (database server)
-- Frontent;
+
+- Front-end;
   - HTML
   - CSS (SASS)
   - JavaScript
