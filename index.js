@@ -19,9 +19,9 @@ const {
 } = require('./controllers/index');
 
 // Some constants.
-DB_URL = process.env.DB_URL || "mongodb://testuser:testpass@localhost/QuotesRank";
-COOKIE_SECRET = process.env.SECRET || '418b1fb21f59445105aa856a5b7b91edebda9b25340d7eeac6715f7b7918a213';
-SERVER_PORT = process.env.SERVER_PORT || 3000;
+const DB_URL = process.env.DB_URL || "mongodb://testuser:testpass@localhost/QuotesRank";
+const COOKIE_SECRET = process.env.SECRET || '418b1fb21f59445105aa856a5b7b91edebda9b25340d7eeac6715f7b7918a213';
+const SERVER_PORT = process.env.SERVER_PORT || 3000;
 
 // Initialise the app
 const app = express();
