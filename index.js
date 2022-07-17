@@ -6,7 +6,6 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const {User} = require('./models/user');
@@ -53,8 +52,8 @@ app.use(session({
 }));
 
 // Handle data encoding.
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // A middleware that auto reload data of logged in users.
 app.use((req, res, next) => {
