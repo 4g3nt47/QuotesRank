@@ -6,6 +6,10 @@
 
 The application is built with an API through which every feature of site can be used. The frontend is server-side rendered (SSR), but there is client-side JavaScript code that interacts with the backend API, and handles application logic. The layout is also designed to be responsive to different screen sizes.
 
+## Live Instance
+
+You can access the live instance of the application [here](https://quotesrank.herokuapp.com)
+
 ## Technologies
 
 - Backend;
